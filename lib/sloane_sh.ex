@@ -1,18 +1,5 @@
 defmodule SloaneSH do
   @moduledoc """
-  Documentation for `SloaneSH`.
+  Sloane's personal static site generator powering [sloane.sh](https://sloane.sh).
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> SloaneSH.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end
