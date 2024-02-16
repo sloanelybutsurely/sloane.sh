@@ -8,8 +8,6 @@ defmodule SloaneSH do
   end
 
   def watch(_opts \\ []) do
-    Task.start_link(fn ->
-      Process.sleep(5_000)
-    end)
+    SloaneSH.Watch.start_link()
   end
 end

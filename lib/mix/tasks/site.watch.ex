@@ -2,10 +2,11 @@ defmodule Mix.Tasks.Site.Watch do
   @moduledoc "Build and output the site as HTML watching for changes"
   @shortdoc "build the site and watch for changes"
   use Mix.Task
+  require Logger
 
   @impl Mix.Task
   def run(_args) do
-    IO.puts("Starting site.watch...")
+    Logger.info("Starting site.watch...")
 
     {:ok, pid} = SloaneSH.watch()
 
@@ -14,7 +15,7 @@ defmodule Mix.Tasks.Site.Watch do
 
       receive do
         {:DOWN, ^ref, _, _, _} ->
-          IO.puts("site.watch terminated")
+          Logger.info("site.watch terminated")
           :ok
       end
     end
