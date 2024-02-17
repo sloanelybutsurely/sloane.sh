@@ -6,6 +6,7 @@ defmodule Mix.Tasks.Site.Watch do
 
   @impl Mix.Task
   def run(_args) do
+    Mix.Task.run("app.start")
     Logger.info("Starting site.watch...")
 
     {:ok, pid} = SloaneSH.watch()

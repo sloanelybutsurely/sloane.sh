@@ -6,15 +6,8 @@ defmodule Mix.Tasks.Site.Serve do
 
   @impl Mix.Task
   def run(_args) do
+    Mix.Task.run("app.start")
     Logger.info("Starting development server...")
-
-    {:ok, _} =
-      Application.ensure_all_started([
-        :telemetry,
-        :plug,
-        :thousand_island,
-        :bandit
-      ])
 
     {:ok, pid} = SloaneSH.serve()
 
