@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>sloane.sh</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">home</a>
+        <a href="/about">about</a>
+      </nav>
+    </header>
+    <%= inner_content %>
+  </body>
+</html>

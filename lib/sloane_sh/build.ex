@@ -1,9 +1,17 @@
 defmodule SloaneSH.Build do
   require Logger
+  require EEx
 
   alias SloaneSH.Context
   alias SloaneSH.Markdown
   alias SloaneSH.Write
+
+  @layouts_dir Path.join(:code.priv_dir(:sloane_sh), "site/layouts")
+
+  EEx.function_from_file(:def, :root_layout, Path.join(@layouts_dir, "root.html.eex"), [
+    :ctx,
+    :inner_content
+  ])
 
   def run(%Context{} = ctx) do
     ctx
@@ -29,7 +37,8 @@ defmodule SloaneSH.Build do
     path = Path.join(ctx.config.pages_dir, page)
 
     with {:ok, data} <- File.read(path),
-         {:ok, html} <- Markdown.transform(ctx, data),
+         {:ok, inner_content} <- Markdown.transform(ctx, data),
+         html = root_layout(ctx, inner_content),
          :ok <- Write.page(ctx, page, html) do
       Logger.info("Built page: #{page}")
     else
