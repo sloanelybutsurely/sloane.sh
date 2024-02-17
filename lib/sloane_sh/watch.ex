@@ -19,11 +19,10 @@ defmodule SloaneSH.Watch do
   def init(%Context{} = ctx) do
     {:ok, watcher_pid} =
       FileSystem.start_link(
-        dirs:
-          dbg([
-            ctx.config.pages_dir,
-            ctx.config.posts_dir
-          ])
+        dirs: [
+          ctx.config.pages_dir,
+          ctx.config.posts_dir
+        ]
       )
 
     FileSystem.subscribe(watcher_pid)

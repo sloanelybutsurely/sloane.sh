@@ -4,8 +4,9 @@ defmodule SloaneSH do
   """
 
   alias SloaneSH.Build
-  alias SloaneSH.Watch
   alias SloaneSH.Context
+  alias SloaneSH.Serve
+  alias SloaneSH.Watch
 
   def build(_opts \\ []) do
     context()
@@ -17,6 +18,11 @@ defmodule SloaneSH do
   def watch(_opts \\ []) do
     context()
     |> Watch.start_link()
+  end
+
+  def serve do
+    context()
+    |> Serve.start_link()
   end
 
   def context do

@@ -24,7 +24,9 @@ defmodule SloaneSH.MixProject do
       {:file_system, "~> 1.0.0"},
       {:typed_struct, "~> 0.3.0"},
       {:earmark, "~> 1.4"},
-      {:earmark_parser, "~> 1.4"}
+      {:earmark_parser, "~> 1.4"},
+      {:plug, "~> 1.15"},
+      {:bandit, "~> 1.2"}
     ]
   end
 end
