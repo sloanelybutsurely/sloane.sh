@@ -26,3 +26,5 @@ sloane_sh-*.tar
 /tmp/
 
 /.elixir_ls/
+
+/priv/output/

@@ -21,7 +21,10 @@ defmodule SloaneSH.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:file_system, "~> 1.0.0"}
+      {:file_system, "~> 1.0.0"},
+      {:typed_struct, "~> 0.3.0"},
+      {:earmark, "~> 1.4"},
+      {:earmark_parser, "~> 1.4"}
     ]
   end
 end
