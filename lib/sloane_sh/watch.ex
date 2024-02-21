@@ -29,6 +29,8 @@ defmodule SloaneSH.Watch do
 
     FileSystem.subscribe(watcher_pid)
 
+    Tailwind.install_and_run(:default, ~w[--watch]) |> dbg()
+
     state = %__MODULE__{ctx: ctx, watcher_pid: watcher_pid}
 
     {:ok, state, {:continue, :build}}

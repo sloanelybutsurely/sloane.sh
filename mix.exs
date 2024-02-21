@@ -7,7 +7,8 @@ defmodule SloaneSH.MixProject do
       version: "0.1.0",
       elixir: "~> 1.16",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -26,7 +27,14 @@ defmodule SloaneSH.MixProject do
       {:earmark, "~> 1.4"},
       {:earmark_parser, "~> 1.4"},
       {:plug, "~> 1.15"},
-      {:bandit, "~> 1.2"}
+      {:bandit, "~> 1.2"},
+      {:tailwind, "~> 0.2"}
+    ]
+  end
+
+  defp aliases do
+    [
+      "assets.deploy": ["tailwind default --minify"]
     ]
   end
 end
