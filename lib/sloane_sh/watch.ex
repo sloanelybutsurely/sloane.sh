@@ -20,14 +20,13 @@ defmodule SloaneSH.Watch do
   def init(%Context{} = ctx) do
     {:ok, watcher_pid} =
       FileSystem.start_link(
-        dirs:
-          [
-            # ctx.config.layouts_dir,
-            "priv/site/layouts",
-            ctx.config.pages_dir,
-            ctx.config.posts_dir
-          ]
-          |> dbg()
+        dirs: [
+          # ctx.config.layouts_dir,
+          "priv/site/layouts",
+          "lib/sloane_sh/layouts",
+          ctx.config.pages_dir,
+          ctx.config.posts_dir
+        ]
       )
 
     :ok = FileSystem.subscribe(watcher_pid)
@@ -50,8 +49,6 @@ defmodule SloaneSH.Watch do
 
   @impl GenServer
   def handle_info({:file_event, pid, {path, events}}, %{ctx: ctx, watcher_pid: pid} = state) do
-    dbg(path)
-
     if String.match?(path, ~r/layouts/) do
       recompile_layouts()
       Build.run(ctx)
@@ -78,8 +75,9 @@ defmodule SloaneSH.Watch do
   end
 
   defp recompile_layouts do
+    partials_source = Layouts.Partials.module_info(:compile)[:source] |> List.to_string()
     layouts_source = Layouts.module_info(:compile)[:source] |> List.to_string()
-    {:ok, _, _} = Kernel.ParallelCompiler.compile([layouts_source])
+    {:ok, _, _} = Kernel.ParallelCompiler.compile([partials_source, layouts_source])
 
     :ok
   end

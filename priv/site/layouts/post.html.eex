@@ -1,1 +1,5 @@
+<%= if attrs[:title] do %>
+  <h2 class="font-sans font-bold text-lg"><%= attrs[:title] %></h2>
+<% end %>
+
 <%= inner_content %>

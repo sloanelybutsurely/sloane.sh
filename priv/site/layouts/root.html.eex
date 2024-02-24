@@ -6,8 +6,10 @@
     <title>sloane.sh | <%= attrs[:title] %></title>
     <link rel="stylesheet" href="/assets/app.css" />
   </head>
-  <body class="w-full max-w-3xl">
-    <%= header(ctx) %>
-    <%= inner_content %>
+  <body class="w-full max-w-3xl bg-white text-black dark:bg-neutral-800 dark:text-neutral-100">
+    <%= header(ctx, attrs) %>
+    <main class="font-serif mt-6">
+      <%= inner_content %>
+    </main>
   </body>
 </html>

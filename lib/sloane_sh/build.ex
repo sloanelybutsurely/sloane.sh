@@ -45,7 +45,9 @@ defmodule SloaneSH.Build do
 
     with {:ok, data} <- File.read(path),
          {:ok, md} <- Markdown.transform(ctx, data),
-         :ok <- Write.post(ctx, post, md.html) do
+         contents = Layouts.post_layout(ctx, md.attrs, md.html),
+         html = Layouts.root_layout(ctx, md.attrs, contents),
+         :ok <- Write.post(ctx, post, html) do
       Logger.info("Built post: #{post}")
     else
       err -> Logger.error("Failed to build post #{post}: #{inspect(err)}")
