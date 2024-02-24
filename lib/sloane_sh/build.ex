@@ -31,7 +31,7 @@ defmodule SloaneSH.Build do
     path = Path.join(ctx.config.pages_dir, page)
 
     with {:ok, data} <- File.read(path),
-         {:ok, md} <- Markdown.transform(ctx, data),
+      {:ok, md} <- Markdown.transform(ctx, data),
          contents = Layouts.page_layout(ctx, md.attrs, md.html),
          html = Layouts.root_layout(ctx, md.attrs, contents),
          :ok <- Write.page(ctx, page, html) do
@@ -45,7 +45,7 @@ defmodule SloaneSH.Build do
     path = Path.join(ctx.config.posts_dir, post)
 
     with {:ok, data} <- File.read(path),
-         {:ok, md} <- Markdown.transform(ctx, data),
+      {:ok, md} <- Markdown.transform(ctx, data),
          contents = Layouts.post_layout(ctx, md.attrs, md.html),
          html = Layouts.root_layout(ctx, md.attrs, contents),
          :ok <- Write.post(ctx, post, html) do
@@ -56,7 +56,6 @@ defmodule SloaneSH.Build do
   end
 
   def copy_img(%Context{} = ctx) do
-
     ctx
   end
 end

@@ -8,15 +8,13 @@ defmodule SloaneSH.Layouts.Partials do
     :def,
     :header,
     ~S"""
-    <header class="flex flex-row justify-between gap-2 border-b border-neutral-700 pb-4 mb-2">
-      <%= if attrs[:title] do %>
-        <h1 class="text-3xl font-bold"><%= attrs[:title] %></h1>
-      <% end %>
-    <div class="flex flex-col gap-2 <%= cx("items-end": attrs[:title]) %>">
+    <header class="flex flex-row justify-between gap-2 border-b border-neutral-700 pb-4 mb-2" data-pagefind-ignore>
+      <div class="flex flex-col gap-2">
         <a href="/"><h1 class="text-2xl">sloane.sh</h1></a>
-        <nav class="flex flex-row gap-2 text-lg">
+        <nav class="flex flex-row gap-2 text-xl">
           <a href="/" class="<%= cx(underline: attrs[:permalink] == "/") %>">home</a>
-          <a href="/writing" class="<%= cx(underline: Map.get(attrs, :permalink, "") =~ ~r[^/posts]) %>">writing</a>
+          <a href="/posts" class="<%= cx(underline: Map.get(attrs, :permalink, "") =~ ~r[^/posts]) %>">posts</a>
+          <a href="/search" class="<%= cx(underline: attrs[:permalink] == "/search") %>">search</a>
         </nav>
       </div>
     </header>

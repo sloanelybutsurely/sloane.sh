@@ -12,22 +12,20 @@ defmodule SloaneSH.Markdown do
   typedstruct do
     field :attrs, map(), default: %{}
     field :html, String.t(), default: ""
+    field :text, String.t(), default: ""
   end
 
   def transform(%Context{} = ctx, data) when is_binary(data) do
-    data
-    |> FrontMatter.parse(ctx)
-    |> parse_markdown(ctx)
-  end
-
-  defp parse_markdown({:ok, attrs, body}, _ctx) do
-    with {:ok, html, msgs} <- Earmark.as_html(body) do
+    with {:ok, attrs, body} <- FrontMatter.parse(data, ctx),
+         {:ok, html, msgs} <- Earmark.as_html(body),
+         {:ok, html_tree} <- Floki.parse_fragment(html) do
       for msg <- msgs, do: Logger.warning(msg)
 
       {:ok,
        %Markdown{
          attrs: attrs,
-         html: html
+         html: html,
+         text: Floki.text(html_tree, sep: " ")
        }}
     else
       {:error, _, msgs} ->
@@ -38,6 +36,4 @@ defmodule SloaneSH.Markdown do
         :error
     end
   end
-
-  defp parse_markdown(other, _ctx), do: other
 end

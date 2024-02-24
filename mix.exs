@@ -30,13 +30,18 @@ defmodule SloaneSH.MixProject do
       {:bandit, "~> 1.2"},
       {:tailwind, "~> 0.2"},
       {:toml, "~> 0.7"},
-      {:esbuild, "~> 0.8"}
+      {:esbuild, "~> 0.8"},
+      {:floki, "~> 0.35"}
     ]
   end
 
   defp aliases do
     [
-      "assets.deploy": ["tailwind default --minify"]
+      "assets.deploy": [
+        "tailwind default --minify",
+        "esbuild default --minify --sourcemap --target=chrome58,firefox57,safari11,edge16"
+      ],
+      "site.index": "cmd npx -y pagefind --site priv/output/"
     ]
   end
 end

@@ -8,6 +8,7 @@ module.exports = {
     './js/**/*.js',
     '../lib/sloane_sh/layouts/*.ex',
     '../priv/site/**/*.*ex',
+    '../priv/site/**/*.md',
   ],
   theme: {
     container: {

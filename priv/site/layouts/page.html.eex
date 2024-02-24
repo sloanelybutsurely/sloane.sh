@@ -1,4 +1,4 @@
 <%= header(ctx, attrs) %>
-<main class="prose-neutral prose prose-xl dark:prose-invert">
+<main class="prose-neutral prose prose-xl dark:prose-invert" data-pagefind-body>
   <%= inner_content %>
 </main>

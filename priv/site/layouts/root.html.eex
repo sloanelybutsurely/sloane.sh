@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="m-4 flex flex-row justify-center">
+<html class="m-4 flex flex-row justify-center" lang="en-US">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" sizes="32x32" href="/assets/img/favicon-32x32.png">
     <title><%= prefix_title("sloane.sh", attrs[:page_title]) %></title>
-    <link rel="stylesheet" href="/assets/app.css" />
+    <link rel="stylesheet" href="/assets/css/app.css" />
   </head>
-  <body class="w-full max-w-3xl bg-white text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100">
+  <body class="w-full max-w-3xl bg-white text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 dark">
     <%= inner_content %>
-    <script defer src="/assets/app.js"></script>
+    <script defer src="/assets/js/app.js"></script>
   </body>
 </html>

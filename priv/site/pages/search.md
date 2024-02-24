@@ -1,0 +1,13 @@
++++
+permalink = "/search"
++++
+
+<div class="mt-6" id="search"></div>
+
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  new PagefindUI({ element: '#search', showSubResults: true });
+});
+</script>
