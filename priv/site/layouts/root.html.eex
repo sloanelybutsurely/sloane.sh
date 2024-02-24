@@ -3,13 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>sloane.sh | <%= attrs[:title] %></title>
+    <title><%= prefix_title("sloane.sh", attrs[:page_title]) %></title>
     <link rel="stylesheet" href="/assets/app.css" />
   </head>
-  <body class="w-full max-w-3xl bg-white text-black dark:bg-neutral-800 dark:text-neutral-100">
-    <%= header(ctx, attrs) %>
-    <main class="mt-6">
-      <%= inner_content %>
-    </main>
+  <body class="w-full max-w-3xl bg-white text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100">
+    <%= inner_content %>
   </body>
 </html>

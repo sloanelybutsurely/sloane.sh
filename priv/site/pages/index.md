@@ -1,12 +1,12 @@
 +++
 permalink = "/"
-title = "home"
+page_title = "home"
 +++
 
-# Hello, World!
+hey, i'm sloane! i'm a professional software engineer and an amateur musician, photographer, wife, chef, and pet mom.
 
-my name is sloane. i am a software engineer.
+#### around the web
 
-i'm on the fediverse [@sloane@tech.lgbt](https://tech.lgbt/@sloane)
-
-also on [github](https://github.com/sloanelybutsurely).
+- [@sloane](https://tech.lgbt/@sloane) on the fediverse
+- [@sloanelybutsurely](https://github.com/sloanelybutsurely) on github
+- [@sloane_of_arc](https://instagram.com/sloane_of_arc) on instagram

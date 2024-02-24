@@ -6,6 +6,7 @@ defmodule SloaneSH.Markdown do
   use TypedStruct
 
   alias SloaneSH.Context
+  alias SloaneSH.FrontMatter
   alias __MODULE__
 
   typedstruct do
@@ -15,20 +16,8 @@ defmodule SloaneSH.Markdown do
 
   def transform(%Context{} = ctx, data) when is_binary(data) do
     data
-    |> parse_attrs(ctx)
+    |> FrontMatter.parse(ctx)
     |> parse_markdown(ctx)
-  end
-
-  defp parse_attrs("+++" <> rest, _ctx) do
-    [toml, body] = String.split(rest, ["+++\n", "+++\r\n"], parts: 2)
-
-    with {:ok, attrs} <- Toml.decode(toml, keys: :atoms) do
-      {:ok, attrs, body}
-    end
-  end
-
-  defp parse_attrs(body, _ctx) do
-    {:ok, %{}, body}
   end
 
   defp parse_markdown({:ok, attrs, body}, _ctx) do

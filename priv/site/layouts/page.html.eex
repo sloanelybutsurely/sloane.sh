@@ -1,1 +1,4 @@
-<%= inner_content %>
+<%= header(ctx, attrs) %>
+<main class="prose-neutral prose prose-xl dark:prose-invert">
+  <%= inner_content %>
+</main>

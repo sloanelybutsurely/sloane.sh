@@ -12,7 +12,7 @@ defmodule SloaneSH.Write do
   end
 
   def write(ctx, name, data) do
-    path = Path.join(ctx.config.output, name)
+    path = Path.join(ctx.config.output_dir, name)
 
     with :ok <- File.mkdir_p(Path.dirname(path)) do
       File.write(path, data)

@@ -24,4 +24,7 @@ defmodule SloaneSH.Layouts do
     :attrs,
     :inner_content
   ])
+
+  defp prefix_title(prefix, nil), do: prefix
+  defp prefix_title(prefix, page_title), do: [prefix, " | ", page_title]
 end
