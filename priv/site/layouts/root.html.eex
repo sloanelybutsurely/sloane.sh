@@ -7,7 +7,7 @@
     <title><%= prefix_title("sloane.sh", attrs[:page_title]) %></title>
     <link rel="stylesheet" href="/assets/css/app.css" />
   </head>
-  <body class="w-full max-w-3xl bg-white text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 dark">
+  <body class="w-full max-w-3xl bg-white text-neutral-900">
     <%= inner_content %>
     <script defer src="/assets/js/app.js"></script>
   </body>
