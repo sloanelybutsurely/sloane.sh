@@ -1,17 +1,10 @@
 defmodule SloaneSH.Build do
   require Logger
-  require EEx
 
   alias SloaneSH.Context
+  alias SloaneSH.Layouts
   alias SloaneSH.Markdown
   alias SloaneSH.Write
-
-  @layouts_dir Path.join(:code.priv_dir(:sloane_sh), "site/layouts")
-
-  EEx.function_from_file(:def, :root_layout, Path.join(@layouts_dir, "root.html.eex"), [
-    :ctx,
-    :inner_content
-  ])
 
   def run(%Context{} = ctx) do
     ctx
@@ -37,8 +30,9 @@ defmodule SloaneSH.Build do
     path = Path.join(ctx.config.pages_dir, page)
 
     with {:ok, data} <- File.read(path),
-         {:ok, inner_content} <- Markdown.transform(ctx, data),
-         html = root_layout(ctx, inner_content),
+         {:ok, md} <- Markdown.transform(ctx, data),
+         contents = Layouts.page_layout(ctx, md.attrs, md.html),
+         html = Layouts.root_layout(ctx, md.attrs, contents),
          :ok <- Write.page(ctx, page, html) do
       Logger.info("Built page: #{page}")
     else
@@ -50,8 +44,8 @@ defmodule SloaneSH.Build do
     path = Path.join(ctx.config.posts_dir, post)
 
     with {:ok, data} <- File.read(path),
-         {:ok, html} <- Markdown.transform(ctx, data),
-         :ok <- Write.post(ctx, post, html) do
+         {:ok, md} <- Markdown.transform(ctx, data),
+         :ok <- Write.post(ctx, post, md.html) do
       Logger.info("Built post: #{post}")
     else
       err -> Logger.error("Failed to build post #{post}: #{inspect(err)}")

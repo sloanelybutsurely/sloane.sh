@@ -6,10 +6,13 @@ let plugin = require('tailwindcss/plugin')
 module.exports = {
   content: [
     './js/**/*.js',
-    '../lib/*_web.ex',
-    '../lib/*_web/**/*.*ex'
+    '../lib/sloane_sh/layouts/*.ex',
+    '../priv/site/**/*.*ex',
   ],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {},
   },
   plugins: [

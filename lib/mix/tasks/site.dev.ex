@@ -6,6 +6,7 @@ defmodule Mix.Tasks.Site.Dev do
   @impl Mix.Task
   def run(_args) do
     Mix.Task.run("app.start")
+
     {:ok, watch_pid} =
       Task.start_link(fn ->
         Mix.Task.run("site.watch")

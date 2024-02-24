@@ -28,7 +28,8 @@ defmodule SloaneSH.MixProject do
       {:earmark_parser, "~> 1.4"},
       {:plug, "~> 1.15"},
       {:bandit, "~> 1.2"},
-      {:tailwind, "~> 0.2"}
+      {:tailwind, "~> 0.2"},
+      {:toml, "~> 0.7"}
     ]
   end
 

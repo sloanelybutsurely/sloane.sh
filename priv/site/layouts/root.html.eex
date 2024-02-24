@@ -1,18 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html class="m-4 flex flex-row justify-center">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>sloane.sh</title>
+    <title>sloane.sh | <%= attrs[:title] %></title>
     <link rel="stylesheet" href="/assets/app.css" />
   </head>
-  <body>
-    <header>
-      <nav>
-        <a href="/">home</a>
-        <a href="/about">about</a>
-      </nav>
-    </header>
+  <body class="w-full max-w-3xl">
+    <%= header(ctx) %>
     <%= inner_content %>
   </body>
 </html>
