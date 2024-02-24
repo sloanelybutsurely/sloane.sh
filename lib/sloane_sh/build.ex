@@ -25,5 +25,7 @@ defmodule SloaneSH.Build do
           Logger.error("Failed to render #{inspect(asset.src)}, #{inspect(err)}")
       end
     end
+
+    :ok
   end
 end

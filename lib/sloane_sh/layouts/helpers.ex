@@ -16,4 +16,8 @@ defmodule SloaneSH.Layouts.Helpers do
     |> Enum.map(& &1.attrs)
     |> Enum.sort_by(& &1[:date], &Date.compare/2)
   end
+
+  def fmt_date(date) do
+    Timex.format!(date, "{Mfull} {D}, {YYYY}")
+  end
 end

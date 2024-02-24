@@ -52,14 +52,14 @@ defmodule SloaneSH.Watch do
   end
 
   @impl GenServer
-  def handle_info({:file_event, pid, {path, _events}}, %{ctx: ctx, watcher_pid: pid} = state) do
+  def handle_info({:file_event, pid, {path, _events}}, %{watcher_pid: pid} = state) do
     if String.match?(path, ~r/layouts/) do
       recompile_layouts()
     end
 
-    Build.run(ctx)
+    ctx = Context.new()
 
-    {:noreply, state}
+    {:noreply, %{state | ctx: ctx}, {:continue, :build}}
   end
 
   @impl GenServer
@@ -72,7 +72,9 @@ defmodule SloaneSH.Watch do
     helpers_source = Layouts.Helpers.module_info(:compile)[:source] |> List.to_string()
     partials_source = Layouts.Partials.module_info(:compile)[:source] |> List.to_string()
     layouts_source = Layouts.module_info(:compile)[:source] |> List.to_string()
-    {:ok, _, _} = Kernel.ParallelCompiler.compile([helpers_source, partials_source, layouts_source])
+
+    {:ok, _, _} =
+      Kernel.ParallelCompiler.compile([helpers_source, partials_source, layouts_source])
 
     :ok
   end

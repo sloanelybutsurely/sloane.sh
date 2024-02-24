@@ -1,7 +1,11 @@
-<ul>
++++
+page_title = "posts"
++++
+
+<ul data-pagefind-ignore>
   <%= for post <- sorted_post_attrs(ctx) do %>
     <li>
-      <a href="<%= post[:permalink] %>"><%= post[:title] %></a>
+      <%= fmt_date(post[:date]) %>: <a href="<%= post[:permalink] %>"><%= post[:title] %></a>
     </li>
   <% end %>
 </ul>

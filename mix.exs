@@ -31,7 +31,7 @@ defmodule SloaneSH.MixProject do
       {:tailwind, "~> 0.2"},
       {:toml, "~> 0.7"},
       {:esbuild, "~> 0.8"},
-      {:floki, "~> 0.35"}
+      {:timex, "~> 3.7"}
     ]
   end
 

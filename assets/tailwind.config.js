@@ -9,6 +9,7 @@ module.exports = {
     '../lib/sloane_sh/layouts/*.ex',
     '../priv/site/**/*.*ex',
     '../priv/site/**/*.md',
+    '../priv/site/**/*.html',
   ],
   theme: {
     container: {
