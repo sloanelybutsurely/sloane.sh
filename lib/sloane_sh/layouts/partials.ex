@@ -11,8 +11,8 @@ defmodule SloaneSH.Layouts.Partials do
       <header class="flex flex-col gap-2">
         <a href="/"><h1 class="text-xl">sloane.sh</h1></a>
         <nav class="flex flex-row gap-2">
-          <a href="/" class="<%= cx("underline": attrs[:permalink] == "/") %>">home</a>
-          <a href="/about" class="<%= cx("underline": attrs[:permalink] == "/about") %>">about</a>
+          <a href="/" class="<%= cx(underline: attrs[:permalink] == "/") %>">home</a>
+          <a href="/about" class="<%= cx(underline: attrs[:permalink] == "/about") %>">about</a>
         </nav>
       </header>
     """,
