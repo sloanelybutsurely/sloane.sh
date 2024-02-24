@@ -3,7 +3,8 @@ defmodule SloaneSH.Layouts do
   `EEx` based layouts
   """
   require EEx
-  import SloaneSH.Layouts.Partials
+  import SloaneSH.Layouts.Partials, warn: false
+  import SloaneSH.Layouts.Helpers, warn: false
 
   @layouts_dir Path.join(:code.priv_dir(:sloane_sh), "site/layouts")
 

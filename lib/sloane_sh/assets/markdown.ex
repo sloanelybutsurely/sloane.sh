@@ -6,6 +6,7 @@ defmodule SloaneSH.Assets.Markdown do
     type = Keyword.fetch!(opts, :type)
 
     quote do
+      import SloaneSH.Layouts.Helpers, warn: false
       alias SloaneSH.Asset
       alias SloaneSH.FrontMatter
       alias SloaneSH.Layouts
@@ -49,7 +50,7 @@ defmodule SloaneSH.Assets.Markdown do
       end
 
       defp do_render(ctx, {path, ".eex"}, data, attrs) do
-        eexed = EEx.eval_string(data, ctx: ctx, attrs: attrs)
+        eexed = eval_eex(data, "#{path}.eex", ctx, attrs)
         do_render(ctx, base_and_ext(path), eexed, attrs)
       end
 
@@ -66,6 +67,15 @@ defmodule SloaneSH.Assets.Markdown do
         ext = Path.extname(path)
         base = Path.basename(path, ext)
         {base, ext}
+      end
+
+      defp eval_eex(template, file, ctx, attrs) do
+        {result, _binding} =
+          template
+          |> EEx.compile_string(file: file)
+          |> Code.eval_quoted([ctx: ctx, attrs: attrs], __ENV__)
+
+        result
       end
 
       def handle_attrs(cfg, path, data, attrs) do

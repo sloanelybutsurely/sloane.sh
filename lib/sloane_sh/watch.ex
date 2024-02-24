@@ -52,24 +52,14 @@ defmodule SloaneSH.Watch do
   end
 
   @impl GenServer
-  def handle_info({:file_event, pid, {path, events}}, %{ctx: ctx, watcher_pid: pid} = state) do
+  def handle_info({:file_event, pid, {path, _events}}, %{ctx: ctx, watcher_pid: pid} = state) do
     if String.match?(path, ~r/layouts/) do
       recompile_layouts()
-      Build.run(ctx)
-      {:noreply, state}
-    else
-      ctx = Context.maybe_add(ctx, path)
-
-      if Context.in_context?(ctx, path) do
-        path = Path.relative_to(path, ctx.config.pages_dir)
-        Logger.info("File changed: #{path}")
-        Build.build_page(ctx, path)
-      end
-
-      %{state | ctx: ctx}
-
-      {:noreply, state}
     end
+
+    Build.run(ctx)
+
+    {:noreply, state}
   end
 
   @impl GenServer
@@ -79,9 +69,10 @@ defmodule SloaneSH.Watch do
   end
 
   defp recompile_layouts do
+    helpers_source = Layouts.Helpers.module_info(:compile)[:source] |> List.to_string()
     partials_source = Layouts.Partials.module_info(:compile)[:source] |> List.to_string()
     layouts_source = Layouts.module_info(:compile)[:source] |> List.to_string()
-    {:ok, _, _} = Kernel.ParallelCompiler.compile([partials_source, layouts_source])
+    {:ok, _, _} = Kernel.ParallelCompiler.compile([helpers_source, partials_source, layouts_source])
 
     :ok
   end

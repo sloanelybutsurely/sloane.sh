@@ -1,0 +1,7 @@
+<ul>
+  <%= for post <- sorted_post_attrs(ctx) do %>
+    <li>
+      <a href="<%= post[:permalink] %>"><%= post[:title] %></a>
+    </li>
+  <% end %>
+</ul>
