@@ -27,6 +27,5 @@ defmodule SloaneSH do
 
   def context do
     Context.new()
-    |> Context.init()
   end
 end

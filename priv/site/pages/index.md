@@ -1,5 +1,4 @@
 +++
-permalink = "/"
 page_title = "home"
 +++
 

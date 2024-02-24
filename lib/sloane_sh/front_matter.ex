@@ -3,7 +3,7 @@ defmodule SloaneSH.FrontMatter do
   Parses TOML front matter out put files
   """
 
-  def parse("+++" <> rest, _ctx) do
+  def parse("+++" <> rest) do
     [toml, body] = String.split(rest, ["+++\n", "+++\r\n"], parts: 2)
 
     with {:ok, attrs} <- Toml.decode(toml, keys: :atoms) do
@@ -11,7 +11,7 @@ defmodule SloaneSH.FrontMatter do
     end
   end
 
-  def parse(body, _ctx) do
+  def parse(body) do
     {:ok, %{}, body}
   end
 end

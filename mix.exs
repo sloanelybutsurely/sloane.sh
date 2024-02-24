@@ -41,7 +41,12 @@ defmodule SloaneSH.MixProject do
         "tailwind default --minify",
         "esbuild default --minify --sourcemap --target=chrome58,firefox57,safari11,edge16"
       ],
-      "site.index": "cmd npx -y pagefind --site priv/output/"
+      "site.index": "cmd npx -y pagefind --site priv/output/",
+      "site.deploy": [
+        "site.build",
+        "site.index",
+        "assets.deploy"
+      ]
     ]
   end
 end

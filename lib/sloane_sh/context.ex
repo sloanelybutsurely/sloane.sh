@@ -4,64 +4,53 @@ defmodule SloaneSH.Context do
   files.
   """
   use TypedStruct
+  require Logger
 
   alias SloaneSH.Config
+  alias SloaneSH.Asset
+  alias SloaneSH.Assets.Page
+  alias SloaneSH.Assets.Post
   alias __MODULE__
 
   typedstruct do
     field :config, Config.t(), enforce: true
-    field :pages, [String.t()], default: []
-    field :posts, [String.t()], default: []
+    field :pages, [Asset.t()], default: []
+    field :posts, [Asset.t()], default: []
   end
 
-  def new(config \\ Config.default()) do
-    %Context{config: config}
+  def new(cfg \\ Config.default()) do
+    pages = load_assets(cfg, Page, cfg.pages_dir)
+    posts = load_assets(cfg, Post, cfg.posts_dir)
+
+    %Context{config: cfg, pages: pages, posts: posts}
   end
 
-  def init(%Context{config: config} = context) do
-    with {:ok, pages_contents} <- File.ls(config.pages_dir),
-         {:ok, posts_contents} <- File.ls(config.posts_dir) do
-      pages = Enum.filter(pages_contents, &String.match?(&1, ~r/.*\.md$/))
-      posts = Enum.filter(posts_contents, &String.match?(&1, ~r/.*\.md$/))
-      %Context{context | pages: pages, posts: posts}
-    end
-  end
+  defp load_assets(cfg, mod, src_dir) do
+    exts = mod.extensions(cfg)
 
-  def maybe_add(%Context{config: config} = ctx, path) do
-    if Config.in_config?(config, path) do
-      cond do
-        String.starts_with?(path, config.pages_dir) ->
-          page = Path.relative_to(path, config.pages_dir)
-          %{ctx | pages: Enum.uniq([page | ctx.pages])}
+    for src <- collect_src_files(src_dir, exts) do
+      contents = File.read!(src)
 
-        String.starts_with?(path, config.posts_dir) ->
-          post = Path.relative_to(path, config.posts_dir)
-          %{ctx | posts: Enum.uniq([post | ctx.posts])}
+      case mod.attrs(cfg, src, contents) do
+        {:ok, attrs, src_contents} ->
+          %Asset{mod: mod, src: src, src_contents: src_contents, attrs: attrs}
 
-        true ->
-          ctx
-      end
-    else
-      ctx
-    end
-  end
+        {:ok, attrs} ->
+          %Asset{mod: mod, src: src, src_contents: contents, attrs: attrs}
 
-  def in_context?(%Context{config: config, pages: pages, posts: posts}, path) do
-    with true <- Config.in_config?(config, path) do
-      cond do
-        String.starts_with?(path, config.pages_dir) ->
-          page = Path.relative_to(path, config.pages_dir)
-
-          [page in pages]
-
-        String.starts_with?(path, config.posts_dir) ->
-          post = Path.relative_to(path, config.posts_dir)
-
-          [post in posts]
-
-        true ->
-          false
+        _ ->
+          Logger.warning("Failed to parse attrs for #{inspect(src)}")
+          %Asset{mod: mod, src: src, src_contents: contents, attrs: %{}}
       end
     end
+  end
+
+  defp collect_src_files(src_dir, exts) do
+    files = src_dir |> File.ls!() |> Enum.map(&Path.join(src_dir, &1))
+    {src_files, rest} = Enum.split_with(files, &String.ends_with?(&1, exts))
+
+    other_dirs = Enum.filter(rest, &File.dir?/1)
+
+    src_files ++ Enum.flat_map(other_dirs, &collect_src_files(&1, exts))
   end
 end

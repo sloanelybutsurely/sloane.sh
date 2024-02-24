@@ -22,11 +22,6 @@ defmodule SloaneSH.Config do
     }
   end
 
-  def in_config?(%Config{} = cfg, path) do
-    Enum.any?([cfg.pages_dir, cfg.posts_dir], &String.starts_with?(path, &1)) and
-      Path.extname(path) == ".md"
-  end
-
   defp resolve_link(path) do
     case File.read_link(path) do
       {:ok, link} ->

@@ -2,60 +2,28 @@ defmodule SloaneSH.Build do
   require Logger
 
   alias SloaneSH.Context
-  alias SloaneSH.Layouts
-  alias SloaneSH.Markdown
-  alias SloaneSH.Write
 
   def run(%Context{} = ctx) do
-    ctx
-    |> build_pages()
-    |> build_posts()
-    |> copy_img()
-  end
+    assets = ctx.posts ++ ctx.pages
 
-  def build_pages(%Context{} = ctx) do
-    Logger.info("Building pages...")
-    for page <- ctx.pages, do: build_page(ctx, page)
+    File.mkdir_p!(ctx.config.output_dir)
 
-    ctx
-  end
+    for asset <- assets do
+      case asset.mod.render(ctx.config, ctx, asset.src, asset.src_contents, asset.attrs) do
+        {:ok, output_files} ->
+          for {dest, content} <- output_files do
+            with :ok <- dest |> Path.dirname() |> File.mkdir_p(),
+                 :ok <- File.write(dest, content) do
+              Logger.info("Wrote #{inspect(dest)}.")
+            else
+              {:error, err} ->
+                Logger.error("Failed to write #{inspect(dest)}, #{inspect(err)}")
+            end
+          end
 
-  def build_posts(%Context{} = ctx) do
-    Logger.info("Building posts...")
-    for post <- ctx.posts, do: build_post(ctx, post)
-
-    ctx
-  end
-
-  def build_page(%Context{} = ctx, page) do
-    path = Path.join(ctx.config.pages_dir, page)
-
-    with {:ok, data} <- File.read(path),
-         {:ok, md} <- Markdown.transform(ctx, data),
-         contents = Layouts.page_layout(ctx, md.attrs, md.html),
-         html = Layouts.root_layout(ctx, md.attrs, contents),
-         :ok <- Write.page(ctx, page, html) do
-      Logger.info("Built page: #{page}")
-    else
-      err -> Logger.error("Failed to build page #{page}: #{inspect(err)}")
+        err ->
+          Logger.error("Failed to render #{inspect(asset.src)}, #{inspect(err)}")
+      end
     end
-  end
-
-  def build_post(%Context{} = ctx, post) do
-    path = Path.join(ctx.config.posts_dir, post)
-
-    with {:ok, data} <- File.read(path),
-         {:ok, md} <- Markdown.transform(ctx, data),
-         contents = Layouts.post_layout(ctx, md.attrs, md.html),
-         html = Layouts.root_layout(ctx, md.attrs, contents),
-         :ok <- Write.post(ctx, post, html) do
-      Logger.info("Built post: #{post}")
-    else
-      err -> Logger.error("Failed to build post #{post}: #{inspect(err)}")
-    end
-  end
-
-  def copy_img(%Context{} = ctx) do
-    ctx
   end
 end
