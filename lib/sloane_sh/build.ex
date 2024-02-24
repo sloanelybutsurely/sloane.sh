@@ -10,6 +10,7 @@ defmodule SloaneSH.Build do
     ctx
     |> build_pages()
     |> build_posts()
+    |> copy_img()
   end
 
   def build_pages(%Context{} = ctx) do
@@ -52,5 +53,10 @@ defmodule SloaneSH.Build do
     else
       err -> Logger.error("Failed to build post #{post}: #{inspect(err)}")
     end
+  end
+
+  def copy_img(%Context{} = ctx) do
+
+    ctx
   end
 end

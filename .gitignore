@@ -28,3 +28,5 @@ sloane_sh-*.tar
 /.elixir_ls/
 
 /priv/output/
+
+.DS_Store
