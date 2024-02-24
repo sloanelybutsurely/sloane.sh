@@ -35,6 +35,10 @@ defmodule SloaneSH.Watch do
       Tailwind.install_and_run(:default, ~w[--watch])
     end)
 
+    Task.start_link(fn ->
+      Esbuild.install_and_run(:default, ~w[--watch])
+    end)
+
     state = %__MODULE__{ctx: ctx, watcher_pid: watcher_pid}
 
     {:ok, state, {:continue, :build}}

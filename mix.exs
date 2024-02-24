@@ -29,7 +29,8 @@ defmodule SloaneSH.MixProject do
       {:plug, "~> 1.15"},
       {:bandit, "~> 1.2"},
       {:tailwind, "~> 0.2"},
-      {:toml, "~> 0.7"}
+      {:toml, "~> 0.7"},
+      {:esbuild, "~> 0.8"}
     ]
   end
 
