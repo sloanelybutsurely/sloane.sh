@@ -12,6 +12,13 @@ defmodule SloaneSH.OutputDirs do
     cfg.output_dir |> Path.join(path) |> prettify_html_path()
   end
 
+  def image(cfg, src) do
+    path = Path.relative_to(src, cfg.images_dir)
+    path = Path.join("assets/images", path)
+
+    cfg.output_dir |> Path.join(path)
+  end
+
   def prettify_html_path(path) do
     file = Path.basename(path)
     [without_extension | _] = String.split(file, ".", parts: 2)

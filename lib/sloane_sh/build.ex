@@ -4,7 +4,7 @@ defmodule SloaneSH.Build do
   alias SloaneSH.Context
 
   def run(%Context{} = ctx) do
-    assets = ctx.posts ++ ctx.pages
+    assets = ctx.posts ++ ctx.pages ++ ctx.images
 
     File.mkdir_p!(ctx.config.output_dir)
 

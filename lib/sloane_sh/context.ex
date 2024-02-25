@@ -10,19 +10,22 @@ defmodule SloaneSH.Context do
   alias SloaneSH.Asset
   alias SloaneSH.Assets.Page
   alias SloaneSH.Assets.Post
+  alias SloaneSH.Assets.Image
   alias __MODULE__
 
   typedstruct do
     field :config, Config.t(), enforce: true
     field :pages, [Asset.t()], default: []
     field :posts, [Asset.t()], default: []
+    field :images, [Asset.t()], default: []
   end
 
   def new(cfg \\ Config.default()) do
     pages = load_assets(cfg, Page, cfg.pages_dir)
     posts = load_assets(cfg, Post, cfg.posts_dir)
+    images = load_assets(cfg, Image, cfg.images_dir)
 
-    %Context{config: cfg, pages: pages, posts: posts}
+    %Context{config: cfg, pages: pages, posts: posts, images: images}
   end
 
   defp load_assets(cfg, mod, src_dir) do

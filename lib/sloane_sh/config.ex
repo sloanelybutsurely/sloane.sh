@@ -9,6 +9,7 @@ defmodule SloaneSH.Config do
   typedstruct do
     field :pages_dir, String.t(), enforce: true
     field :posts_dir, String.t(), enforce: true
+    field :images_dir, String.t(), enforce: true
     field :output_dir, String.t(), enforce: true
   end
 
@@ -18,6 +19,7 @@ defmodule SloaneSH.Config do
     %Config{
       pages_dir: Path.join(priv, "site/pages"),
       posts_dir: Path.join(priv, "site/posts"),
+      images_dir: Path.join(priv, "site/images"),
       output_dir: Path.join(priv, "output")
     }
   end
