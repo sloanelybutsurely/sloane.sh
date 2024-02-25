@@ -44,4 +44,12 @@ defmodule SloaneSH.OutputDirs do
   def from_permalink(cfg, permalink) do
     Path.join([cfg.output_dir, permalink, "/index.html"])
   end
+
+  def replace_ext(path, new_ext) do
+    ext = Path.extname(path)
+    base = Path.basename(path, ext)
+    dir = Path.dirname(path)
+
+    Path.join(dir, base <> new_ext)
+  end
 end

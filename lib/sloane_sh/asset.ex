@@ -13,7 +13,7 @@ defmodule SloaneSH.Asset do
   @callback extensions(cfg :: Config.t()) :: [String.t()]
 
   @callback attrs(cfg :: Config.t(), path :: String.t(), data :: binary()) ::
-              {:ok, map(), without_attrs :: binary()} | {:ok, map()} | :error | {:error, term()}
+              {:ok, map(), without_attrs :: term()} | {:ok, map()} | :error | {:error, term()}
 
   @callback render(
               cfg :: Config.t(),

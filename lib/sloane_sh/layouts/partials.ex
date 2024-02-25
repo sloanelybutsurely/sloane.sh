@@ -16,7 +16,10 @@ defmodule SloaneSH.Layouts.Partials do
         <% end %>
       </div>
       <div class="flex flex-col gap-2 items-end">
-        <a href="/"><span class="text-lg font-bold">sloane.sh</span></a>
+        <div class="flex flex-row gap-2 items-center">
+          <a href="/"><span class="text-lg font-bold">sloane.sh</span></a>
+          <%= picture(ctx, "/assets/images/heart.png", "a purple heart emoji", "w-4 h-4") %>
+        </div>
         <nav class="flex flex-row gap-2">
           <a href="/" class="<%= cx(underline: attrs[:permalink] == "/") %>">home</a>
           <a href="/posts" class="<%= cx(underline: Map.get(attrs, :permalink, "") =~ ~r[^/posts]) %>">posts</a>

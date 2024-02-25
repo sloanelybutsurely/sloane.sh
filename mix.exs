@@ -31,7 +31,8 @@ defmodule SloaneSH.MixProject do
       {:tailwind, "~> 0.2"},
       {:toml, "~> 0.7"},
       {:esbuild, "~> 0.8"},
-      {:timex, "~> 3.7"}
+      {:timex, "~> 3.7"},
+      {:image, "~> 0.42"}
     ]
   end
 
