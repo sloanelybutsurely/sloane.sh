@@ -7,9 +7,11 @@ hey, i'm sloane! i'm a professional software engineer and an amateur musician, p
 
 ### around the web
 
-- <a rel="me" href="https://tech.lgbt/@sloane">@sloane</a> on the fediverse
-- [@sloanelybutsurely](https://github.com/sloanelybutsurely) on github
-- [@sloane_of_arc](https://instagram.com/sloane_of_arc) on instagram
+<ul>
+<li><a rel="me" href="https://tech.lgbt/@sloane" target="_blank">@sloane</a> on the fediverse</li>
+<li><a href="https://github.com/sloanelybutsurely" target="_blank">@sloanelybutsurely</a> on github</li>
+<li><a href="https://instagram.com/sloane_of_arc" target="_blank">@sloane_of_arc</a> on instagram</li>
+</ul>
 
 ### writing
 
@@ -22,6 +24,6 @@ i write more than i share but here are some things that have made it out of my d
 
 ### projects
 
-#### 🌱 [screen.garden](https://screen.garden)
+<h4>🌱 <a href="https://screen.garden" target="_blank">screen.garden</a></h4>
 
 real-time collaboration across obsidian and the web. currently in closed beta.
