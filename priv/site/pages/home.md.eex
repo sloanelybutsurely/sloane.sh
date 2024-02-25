@@ -1,0 +1,27 @@
++++
+page_title = "home"
+permalink = "/"
++++
+
+hey, i'm sloane! i'm a professional software engineer and an amateur musician, photographer, wife, chef, and pet mom.
+
+### around the web
+
+- [@sloane](https://tech.lgbt/@sloane) on the fediverse
+- [@sloanelybutsurely](https://github.com/sloanelybutsurely) on github
+- [@sloane_of_arc](https://instagram.com/sloane_of_arc) on instagram
+
+### writing
+
+i write more than i share but here are some things that have made it out of my drafts folder recently
+
+<%= for post <- Enum.take(sorted_post_attrs(ctx), 3) do %>
+  - <%= fmt_date(post[:date]) %>: [<%= post[:title] %>](<%= post[:permalink] %>)
+<% end %>
+
+
+### projects
+
+#### 🌱 [screen.garden](https://screen.garden)
+
+real-time collaboration across obsidian and the web. currently in closed beta.

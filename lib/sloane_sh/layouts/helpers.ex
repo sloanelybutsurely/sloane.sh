@@ -14,7 +14,7 @@ defmodule SloaneSH.Layouts.Helpers do
   def sorted_post_attrs(%Context{} = ctx) do
     ctx.posts
     |> Enum.map(& &1.attrs)
-    |> Enum.sort_by(& &1[:date], &Date.compare/2)
+    |> Enum.sort_by(& &1[:date], {:desc, Date})
   end
 
   def fmt_date(date) do

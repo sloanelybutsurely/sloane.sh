@@ -1,9 +1,16 @@
-<div class="mt-6" id="search"></div>
+</main>
+<div class="mt-6 mx-auto" id="search"></div>
 
 <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
 <script src="/pagefind/pagefind-ui.js"></script>
 <script>
-window.addEventListener('DOMContentLoaded', () => {
-  new PagefindUI({ element: '#search', showSubResults: true });
-});
+  window.addEventListener('DOMContentLoaded', () => {
+    new PagefindUI({
+      element: '#search',
+      showSubResults: true,
+      showImages: false,
+    });
+  });
 </script>
+
+<main>

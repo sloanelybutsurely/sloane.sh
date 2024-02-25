@@ -1,3 +1,17 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+body {
+  --pagefind-ui-border-width: 1px;
+}
+
+@media (prefers-color-scheme: dark) {
+  #search {
+    --pagefind-ui-primary: #eeeeee;
+    --pagefind-ui-text: #eeeeee;
+    --pagefind-ui-background: rgb(64, 64, 64);
+    --pagefind-ui-border: rgb(163, 163, 163);
+    --pagefind-ui-tag: #152028;
+  }
+}
