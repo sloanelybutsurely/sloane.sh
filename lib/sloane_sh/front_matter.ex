@@ -4,7 +4,7 @@ defmodule SloaneSH.FrontMatter do
   """
 
   def parse("+++" <> rest) do
-    [toml, body] = String.split(rest, ["+++\n", "+++\r\n"], parts: 2)
+    [toml, body] = String.split(rest, ["+++\n", "+++\r\n"], parts: 2) |> dbg()
 
     with {:ok, attrs} <- Toml.decode(toml, keys: :atoms) do
       {:ok, attrs, body}

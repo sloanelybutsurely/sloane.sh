@@ -14,14 +14,18 @@ defmodule SloaneSH.Layouts.Helpers do
   end
 
   def sorted_post_attrs(%Context{} = ctx) do
-    ctx.posts
-    |> Enum.map(& &1.attrs)
-    |> Enum.sort_by(& &1[:date], {:desc, Date})
+    {drafts, others} =
+      ctx.posts
+      |> Enum.map(& &1.attrs)
+      |> Enum.split_with(&is_nil(&1[:date]))
+
+    others = Enum.sort_by(others, & &1[:date], {:desc, Date})
+
+    drafts ++ others
   end
 
-  def fmt_date(date) do
-    Timex.format!(date, "{Mfull} {D}, {YYYY}")
-  end
+  def fmt_date(nil), do: "Draft"
+  def fmt_date(date), do: Timex.format!(date, "{Mfull} {D}, {YYYY}")
 
   def picture(ctx, src, alt \\ "", class \\ "") do
     image =

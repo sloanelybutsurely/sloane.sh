@@ -14,6 +14,9 @@ defmodule SloaneSH.Layouts.Partials do
         <%= if attrs[:title] do %>
           <h1 class="text-3xl font-extrabold"><%= attrs[:title] %></h1>
         <% end %>
+        <%= if attrs[:date] do %>
+          <small><%= fmt_date(attrs[:date]) %></small>
+        <% end %>
       </div>
       <div class="flex flex-col gap-2 items-end">
         <div class="flex flex-row gap-2 items-center">
