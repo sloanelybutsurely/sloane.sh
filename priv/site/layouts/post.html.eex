@@ -1,5 +1,0 @@
-<%= header(ctx, attrs) %>
-
-<article class="prose-neutral prose max-w-none dark:prose-invert" data-pagefind-body>
-  <%= inner_content %>
-</article>
