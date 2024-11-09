@@ -1,10 +1,22 @@
-# SloaneSH
-
-_Sloane's personal static site generator powering [sloane.sh](https://sloane.sh)._
+# sloane.sh
 
 ## Setup
 
-1. Clone the repo
-2. Install Erlang and Elixir: `asdf install`
-3. Install dependencies: `mix deps.get`
+```sh
+brew install --cask racket
+raco pkg install pollen
+```
 
+## Working on the site
+
+```sh
+raco pollen start site
+```
+
+## Building the site
+
+```sh
+mkdir -p build
+raco pollen render site
+raco pollen publish site build
+```
