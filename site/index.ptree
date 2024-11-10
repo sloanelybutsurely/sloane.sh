@@ -1,3 +1,5 @@
 #lang pollen
 
-index.html
+◊index.html{
+  uses/index.html
+}

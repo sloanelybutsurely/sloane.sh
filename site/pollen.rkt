@@ -22,6 +22,12 @@
   (txexpr 'h2 empty elements))
 (define (low-level-heading . elements)
   (txexpr 'h3 empty elements))
+(define (link dest . elements)
+  (txexpr 'a `((href ,dest)) elements))
+(define (unordered-list . elements)
+  (txexpr 'ul empty elements))
+(define (item . elements)
+  (txexpr 'li empty elements))
 
 (define (side-note label . elements)
   `(splice-me

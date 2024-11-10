@@ -3,7 +3,11 @@
 ◊title{Hi, I'm Sloane!}
 
 ◊section{
-  I'm a professional software engineer and an amateur musician, photographer, wife, chef, and pet mom. 
+  ◊p{I'm a professional software engineer and an amateur musician, photographer, wife, chef, and pet mom.}
+}
 
-  ◊code{sloane.sh} is my place on the web; however, it is currently under construction. Please check back later.
+◊section{
+  ◊heading{◊link["/uses"]{My Tools}}
+
+  If you're interested in the tools I use you can check out my ◊a[#:href "https://usesthis.com"]{usesthis.com} style self-interview.
 }
