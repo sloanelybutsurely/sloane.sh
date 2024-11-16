@@ -6,7 +6,7 @@
   ◊blockquote[#:cite "https://usesthis.com/about/#:~:text=Have%20you%20considered%20added%20a%20%2Fuses%2F%20page%20to%20your%20own%20site%2C%20answering%20the%20same%20questions%3F"]{
     Have you considered adding a ◊code{/uses/} page to your own site, answering the same questions? 
     ◊footer{
-      ◊link["https://wafer.baby/@d"]{Daniel} of ◊link["https://usesthis.com/about/#:~:text=Have%20you%20considered%20added%20a%20%2Fuses%2F%20page%20to%20your%20own%20site%2C%20answering%20the%20same%20questions%3F"]{usesthis.com}
+      ◊link["https://waferbaby.com/"]{Daniel} of ◊link["https://usesthis.com/about/#:~:text=Have%20you%20considered%20added%20a%20%2Fuses%2F%20page%20to%20your%20own%20site%2C%20answering%20the%20same%20questions%3F"]{usesthis.com}
     }
   }
 }
