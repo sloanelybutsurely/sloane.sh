@@ -39,5 +39,8 @@ layout: default
       <!--   </ul> -->
       <!-- </dd> -->
     </dl>
+    {% for service in page.syndicate %}
+      <a href="https://brid.gy/publish/{{ service }}"></a>
+    {% endfor %}
   </footer>
 </article>
