@@ -11,8 +11,12 @@ webmentions:
   syndication:
     mastodon:
       endpoint: https://brid.gy/publish/mastodon
+      response_mapping:
+        syndication: $.url
     bluesky:
       endpoint: https://brid.gy/publish/bluesky
+      response_mapping:
+        syndication: $.url
 
 author:
   name: sloane
