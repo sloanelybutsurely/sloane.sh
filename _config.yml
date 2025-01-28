@@ -4,7 +4,15 @@ title: "sloane.sh" # the name of your site, e.g. ACME Corp.
 permalink: /:categories/:year/:month/:day/:title/index:output_ext
 plugins:
   - jekyll-compose
+  - jekyll-webmention_io
 
+webmentions:
+  username: sloane.sh
+  syndication:
+    mastodon:
+      endpoint: https://brid.gy/publish/mastodon
+    bluesky:
+      endpoint: https://brid.gy/publish/bluesky
 
 author:
   name: sloane

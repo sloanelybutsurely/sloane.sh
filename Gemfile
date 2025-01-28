@@ -7,4 +7,5 @@ gem 'webrick'
 
 group :jekyll_plugins do
   gem 'jekyll-compose'
+  gem 'jekyll-webmention_io'
 end

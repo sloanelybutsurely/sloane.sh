@@ -39,8 +39,10 @@ layout: default
       <!--   </ul> -->
       <!-- </dd> -->
     </dl>
-    {% for service in page.syndicate %}
-      <a href="https://brid.gy/publish/{{ service }}"></a>
+    {% webmentions page.url %}
+    {% for target in page.syndicate_to %}
+      <a href="{{ site.webmentions.syndication[target].endpoint }}"></a>
     {% endfor %}
   </footer>
 </article>
+{% webmentions_js %}
