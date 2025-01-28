@@ -3,16 +3,14 @@ layout: default
 ---
 
 <article class="h-entry">
-  {% if page.title || page.summary %}
-    <header>
-      {% if page.title %}
-        <h1 class="p-name">{{ page.title | smartify }}</h1>
-      {% endif %}
-      {% if page.summary %}
-        <p class="p-summary">{{ page.summary }}</p>
-      {% endif %}
-    </header>
-  {% endif %}
+  <header>
+    {% if page.title %}
+      <h1 class="p-name">{{ page.title | smartify }}</h1>
+    {% endif %}
+    {% if page.summary %}
+      <p class="p-summary">{{ page.summary }}</p>
+    {% endif %}
+  </header>
 
   <div class="e-content">
     {{ content }}
@@ -28,7 +26,7 @@ layout: default
       </dd>
 
       <dt>Published</dt>
-      <dd><time datetime="{{ page.date }}">{{ page.date | date: "%B %e, %Y" }}</time>
+      <dd><time datetime="{{ page.date }}">{{ page.date | date: "%B %e, %Y" }}</time></dd>
 
       <!-- <dt>Category</dt> -->
       <!-- <dd> -->
@@ -42,8 +40,16 @@ layout: default
       <!--     {% endfor %} -->
       <!--   </ul> -->
       <!-- </dd> -->
+        
     </dl>
+    <ul>
+      {% for url in page.syndication %}
+        <li><a class="u-syndication" href="{{ url }}">{{ url }}</a></li>
+      {% endfor %}
+    </ul>
+
     {% webmentions page.url %}
+
     {% for target in page.syndicate_to %}
       <a href="{{ site.webmentions.syndication[target].endpoint }}"></a>
     {% endfor %}
