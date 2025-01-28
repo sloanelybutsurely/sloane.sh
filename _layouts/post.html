@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<article class="h-entry">
+  <header>
+    <h1 class="p-name">{{ page.title | smartify }}</h1>
+    {% if page.summary %}
+      <p class="p-summary">{{ page.summary }}</p>
+    {% endif %}
+  </header>
+
+  <div class="e-content">
+    {{ content }}
+  </div>
+
+  <hr />
+
+  <footer>
+    <dl>
+      <dt>Author</dt>
+      <dd>
+        <a class="p-author h-card" href="{{ site.author.url }}">{{ site.author.name }}</a>
+      </dd>
+
+      <dt>Published</dt>
+      <dd><time datetime="{{ page.date }}">{{ page.date | date: "%B %e, %Y" }}</time>
+
+      <!-- <dt>Category</dt> -->
+      <!-- <dd> -->
+      <!-- </dd> -->
+
+      <!-- <dt>Tags</dt> -->
+      <!-- <dd> -->
+      <!--   <ul> -->
+      <!--     {% for tag in page.tags %} -->
+      <!--       <li><a href= -->
+      <!--     {% endfor %} -->
+      <!--   </ul> -->
+      <!-- </dd> -->
+    </dl>
+  </footer>
+</article>

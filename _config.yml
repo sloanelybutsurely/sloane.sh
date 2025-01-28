@@ -1,0 +1,10 @@
+url: "https://sloane.sh" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "sloane.sh" # the name of your site, e.g. ACME Corp.
+plugins:
+  - jekyll-compose
+
+
+author:
+  name: sloane
+  url: "https://sloane.sh"

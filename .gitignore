@@ -1,7 +1,7 @@
 .DS_Store
 
-compiled/
-/build/
-
-*.html
-*.css
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+node_modules
