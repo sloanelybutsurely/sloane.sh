@@ -1,7 +1,7 @@
 ---
 https://sloane.sh/uses/:
-  https://brid.gy/publish/mastodon: 2
-  https://brid.gy/publish/bluesky: 2
+  https://brid.gy/publish/mastodon: 3
+  https://brid.gy/publish/bluesky: 3
   https://wafer.baby/@d: false
   https://usesthis.com/: false
   https://screen.garden: false
@@ -28,8 +28,8 @@ https://sloane.sh/uses/:
   https://readwise.io/read: 1
   https://www.negativelabpro.com/: 1
 https://sloane.sh/2025/01/28/syndication-test/index.html:
-  https://brid.gy/publish/mastodon: 2
-  https://brid.gy/publish/bluesky: 2
+  https://brid.gy/publish/mastodon: 3
+  https://brid.gy/publish/bluesky: 3
 https://sloane.sh/2025/01/28/post/index.html:
   https://brid.gy/publish/mastodon:
     id: '113908767986819456'
@@ -103,7 +103,7 @@ https://sloane.sh/2025/01/28/post/index.html:
   https://brid.gy/publish/bluesky:
     id: at://did:plc:j7knblsrh4flod7wy2ynoycs/app.bsky.feed.post/3lgtoykvien23
     url: https://bsky.app/profile/sloane.sh/post/3lgtoykvien23
-  https://brid.gy: 2
+  https://brid.gy: 3
   https://webmention.io:
     status: queued
     summary: Webmention was queued for processing
@@ -111,6 +111,6 @@ https://sloane.sh/2025/01/28/post/index.html:
     source: https://sloane.sh/2025/01/28/post/index.html
     target: https://webmention.io
 https://sloane.sh/2025/01/28/post-1/index.html:
-  https://brid.gy/publish/mastodon: 1
+  https://brid.gy/publish/mastodon: 2
 https://sloane.sh/2025/01/29/post-1/index.html:
-  https://brid.gy/publish/mastodon: 1
+  https://brid.gy/publish/mastodon: 2
