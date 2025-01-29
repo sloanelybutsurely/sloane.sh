@@ -39,7 +39,11 @@ jobs:
           git config user.email "actions@github.com"
       - run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
       - uses: actions/upload-pages-artifact@v3
+        with:
+          name: github-pages-publish-1
       - uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-publish-1
       - run: |
           git add _data/webmention_io_*
           git diff --staged --quiet || git commit -m "publish: ${{ github.sha }}"
@@ -47,7 +51,11 @@ jobs:
       - run: bundle exec jekyll webmention
       - run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
       - uses: actions/upload-pages-artifact@v3
+        with:
+          name: github-pages-publish-2
       - uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-publish-1
       - run: |
           git add _data/webmention_io_*
           git diff --staged --quiet || git commit --amend --no-edit
