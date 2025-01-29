@@ -1,0 +1,97 @@
+---
+wafer.baby:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:14:31 -0500'
+usesthis.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:14:32 -0500'
+screen.garden:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:14:32 -0500'
+www.caldigit.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:14:32 -0500'
+www.gigabyte.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:14:33 -0500'
+ergodox-ez.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:14:33 -0500'
+shop.keyboard.io:
+  state: failure
+  attempts: 1
+  last_checked: '2025-01-28 19:14:34 -0500'
+www.gloriousgaming.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:14:35 -0500'
+drop.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:14:36 -0500'
+www.bestbuy.com:
+  state: failure
+  attempts: 1
+  last_checked: '2025-01-28 19:14:41 -0500'
+www.aquaphorus.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:14:42 -0500'
+www.valoi.co:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:14:43 -0500'
+www.iflash.xyz:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:14:44 -0500'
+www.alfredapp.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:15:07 -0500'
+www.mozilla.org:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:15:07 -0500'
+flexibits.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:15:07 -0500'
+culturedcode.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:15:07 -0500'
+sw.kovidgoyal.net:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:15:08 -0500'
+github.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:15:08 -0500'
+kapeli.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:15:09 -0500'
+obsidian.md:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:15:09 -0500'
+readwise.io:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:15:09 -0500'
+www.negativelabpro.com:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:15:10 -0500'
+brid.gy:
+  state: unsupported
+  attempts: 1
+  last_checked: '2025-01-28 19:17:44 -0500'

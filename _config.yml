@@ -8,6 +8,10 @@ plugins:
 
 webmentions:
   username: sloane.sh
+  cache_folder: _data
+  bad_uri_policy:
+    whitelist:
+       - "^https://brid.gy/publish/"
   syndication:
     mastodon:
       endpoint: https://brid.gy/publish/mastodon
