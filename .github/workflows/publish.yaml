@@ -46,7 +46,7 @@ jobs:
           artifact_name: github-pages-publish-1
       - run: |
           git add _data/webmention_io_*
-          git diff --staged --quiet || git commit -m "publish: ${{ github.sha }}"
+          git diff --staged --quiet || git commit -m "publish: collect webmentions for ${{ github.sha }}"
           git push origin main
       - run: bundle exec jekyll webmention
       - run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
@@ -58,5 +58,5 @@ jobs:
           artifact_name: github-pages-publish-1
       - run: |
           git add _data/webmention_io_*
-          git diff --staged --quiet || git commit --amend --no-edit
+          git diff --staged --quiet || git commit -m "publish: update webmentions for ${{ github.sha }}"
           git push origin main --force-with-lease
