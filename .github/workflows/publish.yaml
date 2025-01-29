@@ -7,9 +7,19 @@ on:
     paths-ignore:
       - '_data/webmention_io_*'
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: sloane.sh
+      url: https://sloane.sh
     env:
       JEKYLL_ENV: production
 
