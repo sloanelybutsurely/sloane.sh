@@ -91,7 +91,3 @@ www.negativelabpro.com:
   state: unsupported
   attempts: 1
   last_checked: '2025-01-28 19:15:10 -0500'
-brid.gy:
-  state: unsupported
-  attempts: 1
-  last_checked: '2025-01-28 19:17:44 -0500'

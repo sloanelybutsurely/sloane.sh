@@ -29,7 +29,7 @@ jobs:
           publish_dir: ./_site
       - run: |
           git add _data/webmention_io_*
-          git diff --staged --quiet || git commit -m "Publish"
+          git diff --staged --quiet || git commit -m "publish: ${{ github.sha }}"
           git push origin main
       - run: bundle exec jekyll webmention
       - run: bundle exec jekyll build
@@ -39,5 +39,5 @@ jobs:
           publish_dir: ./_site
       - run: |
           git add _data/webmention_io_*
-          git diff --staged --quiet || git commit --amend
+          git diff --staged --quiet || git commit --amend --no-edit
           git push origin main --force-with-lease
