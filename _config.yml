@@ -1,14 +1,18 @@
-url: "https://sloane.sh" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://sloanelybutsurely.com" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
-title: "sloane.sh" # the name of your site, e.g. ACME Corp.
-permalink: /:categories/:year/:month/:day/:title/index:output_ext
+title: "sloanelybutsurely.com" # the name of your site, e.g. ACME Corp.
+permalink: /:categories/:year/:month/:day/:title/
 plugins:
   - jekyll-compose
   - jekyll-webmention_io
 
 webmentions:
-  username: sloane.sh
+  username: sloanelybutsurely.com
   cache_folder: _data
+  legacy_domains:
+    - http://sloane.sh
+    - https://sloane.sh
+    - http://sloanelybutsurely.com
   bad_uri_policy:
     whitelist:
        - "^https://brid.gy/publish/"
@@ -24,4 +28,4 @@ webmentions:
 
 author:
   name: sloane
-  url: "https://sloane.sh"
+  url: "https://sloanelybutsurely.com"
