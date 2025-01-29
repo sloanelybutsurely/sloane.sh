@@ -1,0 +1,43 @@
+name: Build and publish
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '_data/webmention_io_*'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth:0
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+      - run: bundle exec jekyll build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+      - run: |
+          git add _data/webmention_io_*
+          git diff --staged --quiet || git commit -m "Publish"
+          git push origin main
+      - run: bundle exec jekyll webmention
+      - run: bundle exec jekyll build
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+      - run: |
+          git add _data/webmention_io_*
+          git diff --staged --quiet || git commit --amend
+          git push origin main --force-with-lease
