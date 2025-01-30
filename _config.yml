@@ -6,6 +6,21 @@ plugins:
   - jekyll-compose
   - jekyll-webmention_io
 
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: blog
+  - scope:
+      path: ""
+      type: posts
+      category: micro
+    values:
+      layout: micro
+      title: post
+      permalink: /micro/:year:month:dayT:hour:minute:second/
+
 webmentions:
   username: sloanelybutsurely.com
   cache_folder: _data
