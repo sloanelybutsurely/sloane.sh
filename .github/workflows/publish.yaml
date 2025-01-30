@@ -6,6 +6,7 @@ on:
       - main
     paths-ignore:
       - '_data/webmention_io_*'
+  workflow_dispatch:
 
 concurrency:
   group: "pages"
