@@ -1,101 +1,101 @@
 ---
 wafer.baby:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:14:51 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:40 +0000'
 usesthis.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:14:51 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:41 +0000'
 screen.garden:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:14:52 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:41 +0000'
 www.caldigit.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:14:52 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:41 +0000'
 www.gigabyte.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:14:52 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:41 +0000'
 ergodox-ez.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:14:52 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:42 +0000'
 shop.keyboard.io:
   state: failure
-  attempts: 1
-  last_checked: '2025-01-30 23:14:53 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:42 +0000'
 www.gloriousgaming.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:14:54 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:43 +0000'
 drop.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:14:56 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:44 +0000'
 www.bestbuy.com:
   state: failure
-  attempts: 1
-  last_checked: '2025-01-30 23:15:01 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:49 +0000'
 www.aquaphorus.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:02 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:50 +0000'
 www.valoi.co:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:02 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:50 +0000'
 www.iflash.xyz:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:04 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:51 +0000'
 www.alfredapp.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:05 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:51 +0000'
 www.mozilla.org:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:05 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:51 +0000'
 flexibits.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:05 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:51 +0000'
 culturedcode.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:05 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:51 +0000'
 sw.kovidgoyal.net:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:06 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:52 +0000'
 github.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:06 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:52 +0000'
 kapeli.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:07 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:52 +0000'
 obsidian.md:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:07 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:52 +0000'
 readwise.io:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:07 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:53 +0000'
 www.negativelabpro.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:08 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:53 +0000'
 mbta.com:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:09 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:53 +0000'
 bsky.app:
   state: unsupported
-  attempts: 1
-  last_checked: '2025-01-30 23:15:10 +0000'
+  attempts: 2
+  last_checked: '2025-02-10 13:58:54 +0000'
