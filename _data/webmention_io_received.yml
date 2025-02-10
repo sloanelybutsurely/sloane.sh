@@ -1,3 +1,31 @@
 ---
 "/uses/": {}
-"/micro/20250130T224300/": {}
+"/micro/20250130T224300/":
+  '1881641':
+    id: '1881641'
+    uri: https://bsky.app/profile/sloanelybutsurely.com/post/3lgymn2ul4e2a#liked_by_did:plc:6v2n4rcpc7krmpmzk6vwf2zx
+    source: false
+    pubdate: 2025-01-31 00:42:13.000000000 +00:00
+    raw:
+      source: https://brid.gy/like/bluesky/did:plc:j7knblsrh4flod7wy2ynoycs/at%253A%252F%252Fdid%253Aplc%253Aj7knblsrh4flod7wy2ynoycs%252Fapp.bsky.feed.post%252F3lgymn2ul4e2a/did%253Aplc%253A6v2n4rcpc7krmpmzk6vwf2zx
+      verified: true
+      verified_date: '2025-01-31T00:42:13+00:00'
+      id: 1881641
+      private: false
+      data:
+        author: &1
+          name: Kay
+          url: https://bsky.app/profile/kayannbee.bsky.social
+          photo: https://webmention.io/avatar/cdn.bsky.app/c27d231ce35ecf8dc356b8ae35be6921e3918ddd8b0a62fe4307819ec2316f2f.jpg
+        url: https://bsky.app/profile/sloanelybutsurely.com/post/3lgymn2ul4e2a#liked_by_did:plc:6v2n4rcpc7krmpmzk6vwf2zx
+        name:
+        content:
+        published:
+        published_ts:
+      activity:
+        type: like
+      target: https://sloanelybutsurely.com/micro/20250130T224300/
+    author: *1
+    type: like
+    content: ''
+"/micro/20250210T135600/": {}
